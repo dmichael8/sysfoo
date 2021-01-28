@@ -42,12 +42,7 @@ pipeline {
     }
 
     stage('Docker BandP') {
-      agent {
-        docker {
-          image 'maven:3.6.3-jdk-11-slim'
-        }
-
-      }
+      agent any
       steps {
         script {
           docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
